@@ -1,0 +1,819 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+  }
+  
+  body {
+    background-color: rgba(241, 241, 241, 0.879);
+  }
+  
+  .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    position: fixed;
+    padding: 8px;
+    background: #fff;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 3;
+  }
+  
+  .logo {
+    width: 50px;
+    height: 45px;
+    margin-left: 10px;
+  }
+  
+  .logo img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .searchbar {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    background-color: rgba(199, 192, 192, 0.614);
+    width: 200px;
+    height: 35px;
+    border-radius: 25px;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  
+  .searchbar i {
+    position: absolute;
+    transform: translate(5px, 5px);
+    font-size: 1.5rem;
+  }
+  .searchbar input {
+    border: none;
+    border-radius: 0.3rem;
+    background: transparent;
+    position: absolute;
+    transform: translateX(30px);
+    height: 35px;
+  }
+  
+  .searchbar input:focus {
+    outline: none;
+  }
+  
+  .searchcontainer {
+    padding: 10px 20px;
+  }
+  .searchcontainer ul {
+    list-style-type: none;
+  }
+  .searchcontainer li {
+    padding: 5px;
+    padding-left: 10px;
+  }
+  
+  .logos {
+    position: relative;
+    margin-left: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logos i {
+    font-size: 2rem;
+    margin: 0 40px;
+    cursor: pointer;
+  }
+  .logos i::after {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 100%;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+    background-color: rgb(57, 57, 160);
+  }
+  
+  .logos i:hover {
+    color: rgb(57, 57, 160);
+  }
+  
+  .logos i:hover::after {
+    transform: scale(1);
+  }
+  .side {
+    display: flex;
+    position: absolute;
+    right: 2px;
+  }
+  
+  .side .back {
+    height: 37px;
+    width: 40px;
+    cursor: pointer;
+    margin: 0 10px;
+    background-color: rgba(198, 190, 190, 0.958);
+    padding: 5px;
+    text-align: center;
+    border-radius: 25px;
+  }
+  
+  .imgSidecontainer {
+    height: 37px;
+    width: 40px;
+    padding: 0;
+    border-radius: 25px;
+    margin-top: 5px;
+  }
+  .side i {
+    font-size: 1.5rem;
+    color: black;
+  }
+  
+  .side .back:hover {
+    background: rgba(54, 54, 211, 0.768);
+  }
+  
+  .searchBoard {
+    background: #fff;
+    position: absolute;
+    left: 0;
+    display: none;
+    top: 0;
+    width: 280px;
+    height: 500px;
+    padding: 10px;
+  }
+  
+  .searchBoard .arrow {
+    font-size: 20px;
+    transform: translate(-10px, -10px);
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: -400%;
+  }
+  
+  .searchBoard .searchbar {
+    width: 200px;
+  }
+  .searchBoard .search {
+    transform: translateX(10px);
+    display: inline-block;
+  }
+  
+  .subNavHide {
+    display: none;
+  }
+  
+  .sidebarcontainer {
+    height: auto;
+    width: 300px;
+    overflow: hidden;
+  }
+  .leftsidebarcontainer{
+    position: fixed;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .leftsidebarcontainer:hover .sidebarcontainer{
+    overflow-y: scroll;
+  }
+  
+  .align {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    color: black;
+    padding: 20px;
+    gap: 1rem;
+  }
+  
+  .align:hover {
+    background-color: grey;
+  }
+  
+  #style-2::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #f5f5f5;
+  }
+  
+  #style-2::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f5f5f5;
+  }
+  
+  #style-2::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: grey;
+  }
+  
+  .main {
+    position: absolute;
+    top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3em;
+  }
+  
+  .storiescontainer {
+    background-color: white;
+    margin-top: 50px;
+    height: 250px;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .storiescontainer .stories {
+    position: relative;
+    height: 180px;
+    width: 120px;
+    flex-shrink: 0;
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  .storiescontainer .stories img {
+    height: 100%;
+    width: 100%;
+    border-radius: 16px;
+  }
+  
+  .storiescontainer .story {
+    display: flex;
+    padding: 20px 10px;
+    gap: 0.5rem;
+  }
+  
+  .searchcontainer {
+    color: black;
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 10px;
+  }
+  
+  .storiescontainer .content {
+    overflow-x: scroll;
+    width: calc(100% + 10px);
+    scroll-behavior: smooth;
+  }
+  
+  .content::-webkit-scrollbar {
+    display: none;
+  }
+  .previous,
+  .next {
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 180px;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    border-radius: 16px;
+  }
+  
+  .circle {
+    border-radius: 50px;
+    border: 1px solid blue;
+    height: 37px;
+    width: 40px;
+    transform: translate(4px, 4px);
+    background-size: cover;
+  }
+  
+  .overlay .name {
+    transform: translate(40px, 120px);
+    color: #fff;
+  }
+  
+  .previous {
+    position: absolute;
+    top: 160px;
+    margin-left: 4px;
+    z-index: 2;
+    color: #fff;
+  }
+  
+  .next {
+    position: absolute;
+    z-index: 2;
+    right: 4px;
+    transform: translate(0, -120px);
+    color: #fff;
+    
+  }
+  
+  .storyOpen {
+    display: none;
+  }
+  
+  .storyOpen.active {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 150%;
+    top: -80px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    z-index: 4;
+    overflow: hidden;
+  }
+  .fa-times-circle {
+    font-size: 40px;
+    color: #fff;
+  position: absolute;
+  top: 10%;
+  left: 10px;
+  z-index: 4;
+    cursor: pointer;
+  }
+  
+  .storyOpen img {
+    width: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10%;
+    height: 600px;
+    border-radius: 16px;
+  }
+  
+  .storyOpen .previousStory,
+  .storyOpen .nextStory {
+    color: #fff;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 4;
+  }
+  .previousStory {
+    left: 10px;
+  }
+  .nextStory {
+    right: 10px;
+  }
+  
+  .post-container {
+    background-color: #fff;
+    height: 140px;
+    top: 30px;
+    position: relative;
+    border-radius: 0.5rem;
+  }
+  
+  .content-main {
+    display: flex;
+    flex-direction: column;
+    margin-left: 370px;
+    width: 550px;
+  }
+  
+  .Status {
+    display: flex;
+    margin: 10px 20px;
+  }
+  
+  .Status input {
+    margin-left: 10px;
+    width: 100%;
+    background-color: rgba(240, 232, 232, 0.958);
+    border-radius: 50px;
+    border: none;
+    height: 40px;
+    margin-top: 8px;
+  }
+  .Status > .imgSidecontainer {
+    width: 45px;
+    height: 45px;
+  }
+  .seperator {
+    margin-top: 20px;
+    margin-left: 30px;
+    height: 1px;
+    width: 90%;
+    display: block;
+    background-color: rgb(206, 202, 202);
+  }
+  .post-content {
+    display: grid;
+    grid-template-columns: 180px 180px 180px;
+    gap: 5px;
+    margin: 20px;
+    margin-left: 25px;
+  }
+  
+  .contentIcons {
+    display: block;
+  }
+  
+  .contentIcons > i {
+    font-size: 18px;
+    margin-right: 4px;
+  }
+  .contentIcons > span {
+    font-size: 17px;
+  }
+  
+  .findfriends-container {
+    background-color: #fff;
+    height: 330px;
+    position: relative;
+    top: 50px;
+    border-radius: 0.5rem;
+    
+  }
+  .subfind-container {
+    display: flex;
+    margin: 10px 20px 5px 20px;
+    justify-content: space-between;
+  }
+  
+  .findfriends {
+    display: flex;
+    padding: 5px 10px 5px 5px;
+    width: max-content;
+    gap: 0.5rem;
+  }
+  
+  .contentfindfriends {
+  width: 100%;
+  padding-right: 10px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+  }
+  .contentfindfriends::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .cards {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    height: 280px;
+    width: 200px;
+    border: 2px outset rgba(214, 212, 212, 0.963);
+    border-radius: 8px;
+    overflow: hidden;
+   
+    
+  }
+  
+  .imgdp {
+    object-fit: cover;
+    height: 180px;
+    width: 200px;
+  }
+  
+  .imgdp img {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .profilename {
+    margin: 8px 0 5px 5px;
+    font-size: 1.1rem;
+    font-weight: 520;
+  }
+  
+  .addfriend {
+    background-color: #dbecf4;
+    text-align: center;
+    padding: 4px;
+    width: 80%;
+    margin: 25px 20px 3px 20px;
+    color: blue;
+    font-weight: 500;
+  }
+  .contentfindfriends .next{
+    transform: translate(0,-167px);
+  }
+  
+  .postuser-container{
+    background-color: #fff;
+    height: 500px;
+    position: relative;
+    top: 80px;
+    border-radius: 0.5rem;
+    margin-bottom: 200px;
+  }
+  
+  .postuser-user{
+    display: flex;
+    gap: 0.5rem;
+  
+  }
+  input:focus{
+    outline: none;
+    
+  }
+  .postuser-dp{
+    border-radius: 25px;
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+    margin: 10px 0 10px 10px;
+  }
+  
+  .postuser-dp img{
+    height: 100%;
+    width: 100%;
+  }
+  .postuser-detail{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 10px 0;
+  }
+  .postuser-detail p,
+  .postuser-detail span,
+  .postuser-detail i{
+    font-size: 14px;;
+  }
+  
+  .postuser-icons{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    display: flex;
+    font-size: 22px;
+    gap: 1rem;
+    color: gray;
+  }
+  
+  .postuser-image{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 350px;
+    object-fit: cover;
+  }
+  .postuser-image img{
+    display: block;
+    height: 370px;
+  }
+  
+  .postuser-image p{
+    margin: 20px 0 0 5px;
+  }
+  .postuser-content{
+    margin-top: 10px;
+  }
+  
+  .postuser-likes{
+    height: 20px;
+    width: auto;
+    display: flex;
+    position: relative;
+    top: 80px;
+  }
+  
+  .likes i{
+    color: blue;
+    display: inline;
+    margin-right: -10px;
+    padding-right: 0;
+    position: relative;
+    z-index: 1;
+    font-size: 1rem;
+  }
+  
+  .likes i:nth-child(2){
+    position: relative;
+    z-index: 0;
+  color:red;
+  }
+  .likes span{
+    margin-left: 10px;
+  }
+  .likes+span{
+    position: absolute;
+    right: 2px;
+  }
+  .postuser-likecommshare{
+    position: relative;
+    top: 70px;
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+    margin-top: 10px;
+  }
+  
+  .postuser-container .seperator{
+    width: 540px;
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
+    top: 70px;
+  }
+  
+  .postuser-like{
+   margin-left: 40px;
+  }
+  
+  .right-sidebar{
+    height: auto;
+    width: 25vw;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .sideright {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+  
+  }
+  
+  .containerright:hover .sideright {
+    overflow-y: scroll;
+  }
+  
+  .containerright{
+    position: fixed;
+    right: 5px;
+  }
+  
+  .alignment{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .right-content{
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  
+  .single-contact{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .single-contact .name{
+  transform: translateY(10px);
+  
+  
+  }
+  
+  .circlecontact{
+  border-radius: 50px;
+  height: 40px;
+  width: 40px;
+  transform: translate(4px, 4px);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  }
+  
+  
+  .online{
+  background-color: rgb(19, 137, 19);
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  right: 2px;
+  bottom: 0px;
+  border-radius: 50px;
+  }
+  
+  
+  
+  @media (max-width: 1280px) {
+    .side {
+      margin-left: 10px;
+    }
+  
+    .logos {
+      margin-left: 30px;
+    }
+  
+    .content-main {
+     margin-left: 200px;
+     }
+  
+     .sidebarcontainer {
+    
+      width: 200px;
+    }
+  }
+  
+    @media (max-width: 1024px) {
+      .searchbar {
+        width: 35px;
+      }
+      .searchbar input {
+        display: none;
+        position: absolute;
+      }
+      .align span{
+        display: none;
+      }
+      .sidebarcontainer{
+        width: 150px;
+      }
+      .content-main{
+        margin-left: 80px;
+      }
+      .right-sidebar{
+        width: 17vw;
+        right: 6px;
+      }
+    }
+  
+   @media (max-width: 768px) {
+      .logos {
+        display: none;
+      }
+      .logos i {
+        margin: 2px;
+      }
+      .containerright{
+        display: none;
+      }
+      .sidebarcontainer{
+       display: none;
+      }
+      .content-main{
+        margin-left: 25px;
+        width: 450px;
+      }
+  
+      .main{
+        text-align: center;
+      }
+  
+      .post-content {
+        display: grid;
+        grid-template-columns: 140px 140px 140px;
+        margin: 10px 0;
+        
+      }
+      
+      .contentIcons {
+        display: block;
+      }
+      
+      .contentIcons > i {
+        font-size: 15px;
+  
+      }
+      .contentIcons > span {
+        font-size: 15px;
+      }
+  
+      .postuser-image p{
+        text-align: center;
+        margin: 20px 0 0 5px;
+        font-size: 16px;
+      }
+  
+      .postuser-content{
+        margin-top: 0px;
+      }
+     .postuser-container .seperator{
+       width: 440px;
+  top: 10px;
+      }
+  
+      .postuser-likes{
+        top: 20px;
+      }
+  
+      .postuser-likecommshare{
+        top: 10px;
+      }
+      .postuser-likecommshare{
+        font-size: 16px;
+        display: flex;
+        margin-left: 30px;
+        gap: 8px;
+      }
+    }  
